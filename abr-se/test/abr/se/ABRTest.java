@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.List;
 
 /**
  *
@@ -44,9 +45,32 @@ public class ABRTest {
         t.insert(8);
         t.insert(10);
         t.insert(9);
-        System.out.println(t.root.valeur);
         assertEquals(t.nbElement(), 3);
     }
+    
+    @Test
+    public void testContains(){
+        ABR t = new ABR();
+        t.insert(8);
+        t.insert(10);
+        t.insert(9);
+        System.out.println(t.root.valeur);
+        assertFalse(t.contains(9));
+    }
+    
+    @Test
+    public void toList(){
+        ABR t = new ABR();
+        t.insert(8);
+        t.insert(10);
+        t.insert(9);
+        List ll = null;
+        t.toList(ll);
+        System.out.println(ll);
+        assertFalse(t.contains(9));
+    }
+    
+    
     
     
 }

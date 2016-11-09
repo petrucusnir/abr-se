@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package abr.se;
 
 /**
  *
  * @author petrucusnir
  */
+import java.util.List;
+
 public class ABR {
     
     Node root;
@@ -59,6 +62,21 @@ public class ABR {
             }
             return resultat;
         }
+        
+        public boolean verif(int value){
+            boolean resultat = false;
+            if(this.child_left_ != null){
+                if(this.child_left_.valeur == value){
+                    resultat |= this.child_left_.verif(value);
+                }    
+            }
+            if(this.child_right_!= null){
+                if(this.child_right_.valeur == value){
+                    resultat |= this.child_right_.verif(value);
+                }
+            }
+            return resultat;
+        }
     }
     
     public boolean isEmpty(){
@@ -79,6 +97,23 @@ public class ABR {
             return 0;
         }else{
             return this.root.compteur() - 1;
+        }
+    }
+    
+    public boolean contains(int value){
+        if(this.isEmpty()){
+            return false;
+        }else{
+            return this.root.verif(value);
+        }
+    }
+    
+    public void toList(java.util.List<java.lang.Integer> l){
+        l.clear();
+        for(int i = 0; i < this.nbElement(); i++){
+            if(this.contains(i)){
+                l.add(i);
+            }
         }
     }
 }
