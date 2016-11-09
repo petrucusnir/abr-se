@@ -109,7 +109,6 @@ public class ABR {
     }
     
     public void toList(java.util.List<java.lang.Integer> l){
-        l.clear();
         for(int i = 0; i < this.nbElement(); i++){
             if(this.contains(i)){
                 l.add(i);
